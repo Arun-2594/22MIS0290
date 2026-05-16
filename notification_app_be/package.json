@@ -1,0 +1,15 @@
+{
+  "name": "notification-app-be",
+  "version": "1.0.0",
+  "description": "Stage 1 - Priority Inbox Backend",
+  "main": "priorityInbox.js",
+  "scripts": {
+    "start": "node priorityInbox.js",
+    "top10": "node priorityInbox.js 10",
+    "top15": "node priorityInbox.js 15",
+    "top20": "node priorityInbox.js 20"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
