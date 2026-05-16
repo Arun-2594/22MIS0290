@@ -1,8 +1,3 @@
-/**
- * PriorityInbox Page
- * Displays top N priority notifications, sorted by priority score.
- * User can select N (10, 15, 20).
- */
 
 import React, { useState, useEffect, useCallback } from "react";
 import {

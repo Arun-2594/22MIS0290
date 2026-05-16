@@ -1,24 +1,20 @@
-/**
- * API Utility - Handles Notifications API calls
- */
-
 import logger from "./logger";
 
-const BASE_URL = "http://4.224.186.213/evaluation-service/notifications";
-const AUTH_URL = "http://4.224.186.213/evaluation-service/auth";
+const BASE_URL = "/evaluation-service/notifications";
+const AUTH_URL = "/evaluation-service/auth";
 
 const TYPE_WEIGHTS = { Placement: 3, Result: 2, Event: 1 };
 
-// ─── FILL IN YOUR CREDENTIALS ────────────────────────────────────────────────
+
 const CREDENTIALS = {
-  email: "YOUR_EMAIL@college.edu",
-  name: "YOUR_NAME",
-  rollNo: "YOUR_ROLL_NUMBER",
-  accessCode: "YOUR_ACCESS_CODE",
-  clientID: "YOUR_CLIENT_ID",
-  clientSecret: "YOUR_CLIENT_SECRET",
+  email: "arun.a2022@vitstudent.ac.in",
+  name: "arun a",
+  rollNo: "22mis0290",
+  accessCode: "SfFuWg",
+  clientID: "d4bb321d-4a85-49a2-ac7e-14e54dfe9ea5",
+  clientSecret: "pAcphnkhsCnUMdkW",
 };
-// ─────────────────────────────────────────────────────────────────────────────
+
 
 let cachedToken = null;
 let tokenExpiry = null;

@@ -1,22 +1,14 @@
-/**
- * Logging Middleware - Frontend (Browser)
- * Calls the Affordmed Log API: POST /evaluation-service/logs
- * Signature: Log(stack, level, package, message)
- *
- * Frontend packages: api, component, hook, page, state, style, auth, config, middleware, utils
- */
-
-const LOG_API_URL = "http://4.224.186.213/evaluation-service/logs";
-const AUTH_API_URL = "http://4.224.186.213/evaluation-service/auth";
+const LOG_API_URL = "/evaluation-service/logs";
+const AUTH_API_URL = "/evaluation-service/auth";
 
 // ─── FILL IN YOUR CREDENTIALS ────────────────────────────────────────────────
 const CREDENTIALS = {
-  email: "YOUR_EMAIL@college.edu",
-  name: "YOUR_NAME",
-  rollNo: "YOUR_ROLL_NUMBER",
-  accessCode: "YOUR_ACCESS_CODE",
-  clientID: "YOUR_CLIENT_ID",
-  clientSecret: "YOUR_CLIENT_SECRET",
+  email: "arun.a2022@vitstudent.ac.in",
+  name: "arun a",
+  rollNo: "22mis0290",
+  accessCode: "SfFuWg",
+  clientID: "d4bb321d-4a85-49a2-ac7e-14e54dfe9ea5",
+  clientSecret: "pAcphnkhsCnUMdkW",
 };
 // ─────────────────────────────────────────────────────────────────────────────
 
@@ -54,19 +46,15 @@ async function Log(stack, level, pkg, message) {
   const timestamp = new Date().toISOString();
   const formatted = `[${timestamp}] [${stack.toUpperCase()}] [${level.toUpperCase()}] [${pkg}] ${message}`;
 
-  // Local browser output
+  
   if (level === "error" || level === "fatal") {
-    // eslint-disable-next-line no-console
     console.error(formatted);
   } else if (level === "warn") {
-    // eslint-disable-next-line no-console
     console.warn(formatted);
   } else {
-    // eslint-disable-next-line no-console
     console.info(formatted);
   }
 
-  // Send to Affordmed Log API
   try {
     const token = await getAuthToken();
     if (!token) return null;
@@ -87,7 +75,6 @@ async function Log(stack, level, pkg, message) {
   }
 }
 
-// Frontend convenience wrappers
 const logger = {
   debug: (pkg, msg) => Log("frontend", "debug", pkg, msg),
   info:  (pkg, msg) => Log("frontend", "info",  pkg, msg),

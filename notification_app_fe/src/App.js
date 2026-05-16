@@ -1,8 +1,3 @@
-/**
- * App.js - Main application entry point
- * Handles routing between Priority Inbox and All Notifications pages.
- */
-
 import React, { useState } from "react";
 import {
   AppBar,

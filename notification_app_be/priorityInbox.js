@@ -1,26 +1,18 @@
-/**
- * Stage 1 - Priority Inbox
- * Fetches notifications from the API and returns top N by priority score.
- * Priority Score = type_weight × recency_factor
- */
-
 const logger = require("../logging_middleware/logger");
 
 const API_URL = "http://4.224.186.213/evaluation-service/notifications";
 const AUTH_URL = "http://4.224.186.213/evaluation-service/auth";
 
 const TYPE_WEIGHTS = { Placement: 3, Result: 2, Event: 1 };
-
-// ─── FILL IN YOUR CREDENTIALS (same as logging_middleware/logger.js) ─────────
 const CREDENTIALS = {
-  email: "YOUR_EMAIL@college.edu",
-  name: "YOUR_NAME",
-  rollNo: "YOUR_ROLL_NUMBER",
-  accessCode: "YOUR_ACCESS_CODE",
-  clientID: "YOUR_CLIENT_ID",
-  clientSecret: "YOUR_CLIENT_SECRET",
+  email: "arun.a2022@vitstudent.ac.in",
+  name: "arun a",
+  rollNo: "22mis0290",
+  accessCode: "SfFuWg",
+  clientID: "d4bb321d-4a85-49a2-ac7e-14e54dfe9ea5",
+  clientSecret: "pAcphnkhsCnUMdkW",
 };
-// ─────────────────────────────────────────────────────────────────────────────
+
 
 async function getAuthToken() {
   await logger.info("auth", "Requesting auth token for notifications API");
@@ -87,7 +79,7 @@ async function getTopPriorityNotifications(token, n = 10) {
       const n = topNotifications[i];
       await logger.info(
         "handler",
-        `#${i + 1} | Type:${n.Type} | Score:${n.priorityScore.toFixed(4)} | Msg:${n.Message} | Time:${n.Timestamp}`
+        `Rank ${i + 1} - Type: ${n.Type} - Score: ${n.priorityScore.toFixed(4)} - Msg: ${n.Message}`
       );
     }
     await logger.info("handler", "Stage 1 complete");

@@ -1,8 +1,3 @@
-/**
- * NotificationCard Component
- * Displays a single notification with read/unread styling.
- */
-
 import React from "react";
 import {
   Card,
@@ -26,9 +21,7 @@ const TYPE_BG = {
   Event: "#fff8e1",
 };
 
-/**
- * Format ISO timestamp to readable string
- */
+
 function formatTime(timestamp) {
   const date = new Date(timestamp);
   return date.toLocaleString("en-IN", {

@@ -1,8 +1,3 @@
-/**
- * AllNotifications Page
- * Shows all notifications with pagination and type filtering.
- */
-
 import React, { useState, useEffect, useCallback } from "react";
 import {
   Box,
